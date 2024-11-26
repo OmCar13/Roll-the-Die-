@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>  
+               
+    <button class="button button1"; id="diceRoll"; onclick="rollDice();">Roll the dice</button>
+    <div class="grid-container">
+        <div id="p1">
+            <h1>Player 1</h1>
+            <h2 id="dice_1">Click the button to roll the dice</h2> 
+        </div>
+
+        <div id="p2">
+            <h1>Player 2</h1>
+            <h2 id="dice_2">Click the button to roll the dice</h2>
+        </div>
+    </div> 
+    
+    <h1>Winner - </h1>
+    <h2 id="result">Yet to be declared</h2>
+
+    <button class="button button2"; id="reset"; onclick="resetDice();" >Reset</button>
+    
+    <script src="index.js"></script>
+
+</body>
+</html>
