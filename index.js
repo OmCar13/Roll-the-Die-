@@ -1,3 +1,12 @@
+const DICE_IMAGES = {
+    1: 'images/dice1.png',
+    2: 'images/dice2.png',
+    3: 'images/dice3.png',
+    4: 'images/dice4.png',
+    5: 'images/dice5.png',
+    6: 'images/dice6.png',
+}
+
 const gameState = {
     player1: {
         defaultElement: document.getElementById('dice_1'),
@@ -16,7 +25,7 @@ const gameState = {
     rollDie: function(playerNumber) {
 
         const dice = Math.floor(Math.random() * 6) + 1;
-        const randomDieImage = "images/dice" + dice + ".png"
+        const randomDieImage = DICE_IMAGES[dice];
 
         const element = this[`player${playerNumber}`].defaultElement;
         const dieImage = this[`player${playerNumber}`].defaultDieImage;
@@ -28,7 +37,6 @@ const gameState = {
     },
     determineResult: function(p1_dice, p2_dice) {
         if (p1_dice > p2_dice) {
-            this.defaultDieImage = 
             this.resultElement.innerHTML = "Player 1 wins !";
             this.player1.defaultElement.style.color = "green";
             this.player2.defaultElement.style.color = "red";
@@ -43,25 +51,24 @@ const gameState = {
         }
     },
     rollDice: function() {
-        const p1_dice = rollDie(1);
-        const p2_dice = rollDie(2);
+        const p1_dice = this.rollDie(1);
+        const p2_dice = this.rollDie(2);
         this.determineResult(p1_dice, p2_dice);
     },
     reset: function() {
 
         this.player1.defaultElement.innerHTML = this.player1.defaultText;
         this.player1.defaultElement.style.color = this.player1.defaultColor;
-        this.player1.defaultDieImage.src = 'images/dice6.png';
+        this.player1.defaultDieImage.src = DICE_IMAGES[6];
 
         this.player2.defaultElement.innerHTML = this.player2.defaultText;
         this.player2.defaultElement.style.color = this.player2.defaultColor;
-        this.player2.defaultDieImage.src = 'images/dice6.png';
+        this.player2.defaultDieImage.src = DICE_IMAGES[6];
 
         this.resultElement.innerHTML = "Yet to be declared"
     },
 
 }
-window.rollDie = gameState.rollDie.bind(gameState);
 window.rollDice = gameState.rollDice.bind(gameState);
 window.reset = gameState.reset.bind(gameState);
         
