@@ -1,11 +1,13 @@
 const gameState = {
     player1: {
         defaultElement: document.getElementById('dice_1'),
+        defaultDieImage: document.getElementById('defaultDie_1'),
         defaultText: "Click the button to roll the dice",
         defaultColor: "black"
     }, 
     player2: {
         defaultElement: document.getElementById('dice_2'),
+        defaultDieImage: document.getElementById('defaultDie_2'),
         defaultText: "Click the button to roll the dice",
         defaultColor: "black"
     },
@@ -14,12 +16,19 @@ const gameState = {
     rollDie: function(playerNumber) {
 
         const dice = Math.floor(Math.random() * 6) + 1;
+        const randomDieImage = "images/dice" + dice + ".png"
+
         const element = this[`player${playerNumber}`].defaultElement;
+        const dieImage = this[`player${playerNumber}`].defaultDieImage;
+
         element.innerHTML = `Player ${playerNumber}'s dice is ${dice}`;
+        dieImage.src = randomDieImage;
+
         return dice;
     },
     determineResult: function(p1_dice, p2_dice) {
         if (p1_dice > p2_dice) {
+            this.defaultDieImage = 
             this.resultElement.innerHTML = "Player 1 wins !";
             this.player1.defaultElement.style.color = "green";
             this.player2.defaultElement.style.color = "red";
@@ -42,9 +51,11 @@ const gameState = {
 
         this.player1.defaultElement.innerHTML = this.player1.defaultText;
         this.player1.defaultElement.style.color = this.player1.defaultColor;
+        this.player1.defaultDieImage.src = 'images/dice6.png';
 
         this.player2.defaultElement.innerHTML = this.player2.defaultText;
         this.player2.defaultElement.style.color = this.player2.defaultColor;
+        this.player2.defaultDieImage.src = 'images/dice6.png';
 
         this.resultElement.innerHTML = "Yet to be declared"
     },

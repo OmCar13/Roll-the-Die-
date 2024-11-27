@@ -1,3 +1,7 @@
+body {
+    background-color: #70c1b3;
+}
+
 h1 {
     font-family: Bradley Hand, cursive;
 }
@@ -9,13 +13,14 @@ h2 {
 .button {
     font-family: Bradley Hand, cursive;
     border-radius: 15px;
-    transition-duration: 0.4;
+    transition-duration: 0.3s;
 }
 
 .button1 {
+    display: block;
+    margin: auto;
     font-size: 4rem;
     text-align: center;
-    margin-left: 40%;
     height: 200px;
     width: 400px;
     color: black;
@@ -25,12 +30,16 @@ h2 {
     background-color: #04AA6D;
     color: white;
     cursor: pointer;
+    transform: translateY(15px);
 }
 
 .button2 {
     font-size: 2.5rem;
     border: 2px solid tomato;
     color: black;
+    display: block;
+    margin: auto;
+    
 }
 .button2:hover {
     background-color: tomato;
@@ -42,6 +51,27 @@ h2 {
 .grid-container {
     display: grid;
     grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 300px;
+}
+
+#p1 {
+    background-color: #0099cc;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#p2 {
+    background-color: #99ff66;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.bottom {
+    display: block;
+    margin: auto;
     text-align: center;
 }
 
