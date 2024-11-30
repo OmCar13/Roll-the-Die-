@@ -69,9 +69,22 @@ const gameState = {
     },
 
 }
+
+function buttonSelector(button1Function, button2Function){
+    document.querySelector('.button1').onclick = button1Function;
+    document.querySelector('.button2').onclick = button2Function;
+}
+
+buttonSelector(
+    () => gameState.rollDice.bind(gameState)(),
+    () => gameState.reset.bind(gameState)(),
+);
+
 window.rollDice = gameState.rollDice.bind(gameState);
 window.reset = gameState.reset.bind(gameState);
-        
+
+// document.querySelector('.button1').addEventListener("click", rollDice);
+// document.querySelector('.button2').addEventListener("click", reset);
 
     // function rollDie1() {
     //     const p1_dice = Math.floor(Math.random() * 6) + 1;
